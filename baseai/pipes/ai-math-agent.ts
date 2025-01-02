@@ -1,4 +1,5 @@
 import { PipeI } from '@baseai/core';
+import toolCalculator from '../tools/calculator';
 
 const pipeAiMathAgent = (): PipeI => ({
 	apiKey: process.env.LANGBASE_API_KEY!,
@@ -21,7 +22,7 @@ const pipeAiMathAgent = (): PipeI => ({
 	messages: [{ role: 'system', content: `You are a helpful AI assistant that will work as a calculator, as a genius mathematician.` }],
 	variables: [],
 	memory: [],
-	tools: []
+	tools: [ toolCalculator()],
 });
 
 export default pipeAiMathAgent;
